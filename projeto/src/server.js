@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
 
 const app = express();
@@ -23,6 +24,7 @@ db.once('open', () => {
 app.use(express.json());
 app.use(productRoutes);
 app.use(cartRoutes);
+app.use(userRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server está rodando em: http://localhost:${PORT}`);
